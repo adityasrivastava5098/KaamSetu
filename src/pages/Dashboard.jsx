@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { professions, badges } from '../data/mockData';
 import { Award, BookOpen, ChevronRight, Zap, Hammer, Droplets, HardHat } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const iconMap = {
     Zap, Hammer, Droplets, HardHat
@@ -24,26 +25,60 @@ const Dashboard = () => {
             </header>
 
             <main className="p-6 space-y-8 max-w-lg mx-auto md:max-w-none md:px-12">
-                {/* Progress Card */}
+                {/* capsule  */}
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-blue-600 rounded-3xl p-8 text-white shadow-xl shadow-blue-100 relative overflow-hidden group"
-                >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-700" />
-                    <div className="relative z-10">
-                        <h2 className="text-lg font-bold mb-1">Your Progress</h2>
-                        <div className="flex items-center justify-between mb-4">
-                            <span className="text-3xl font-black">75%</span>
-                            <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full px-4">Level 3</span>
-                        </div>
-                        <div className="w-full h-3 bg-white/20 rounded-full overflow-hidden mb-2">
-                            <div className="w-3/4 h-full bg-white rounded-full shadow-lg" />
-                        </div>
-                        <p className="text-xs font-medium text-blue-100">Keep it up! 2 modules left for next badge.</p>
-                    </div>
-                </motion.div>
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-8 text-white shadow-xl"
+>
+  <h2 className="text-lg font-semibold mb-6">Quick Access</h2>
 
+  <div className="grid grid-cols-3 gap-5">
+
+    <Link to="/dashboard">
+      <div className="bg-white/15 backdrop-blur-lg hover:bg-white/25 transition rounded-2xl p-5 text-center cursor-pointer">
+        <div className="text-3xl mb-2">📊</div>
+        <p className="font-medium">Dashboard</p>
+      </div>
+    </Link>
+
+    <Link to="/learning">
+      <div className="bg-white/15 hover:bg-white/25 transition rounded-2xl p-5 text-center cursor-pointer">
+        <div className="text-3xl mb-2">📚</div>
+        <p className="font-medium">Learn</p>
+      </div>
+    </Link>
+
+    <Link to="/badges">
+      <div className="bg-white/15 hover:bg-white/25 transition rounded-2xl p-5 text-center cursor-pointer">
+        <div className="text-3xl mb-2">🏆</div>
+        <p className="font-medium">Badges</p>
+      </div>
+    </Link>
+
+    <Link to="/chatbot">
+      <div className="bg-white/15 hover:bg-white/25 transition rounded-2xl p-5 text-center cursor-pointer">
+        <div className="text-3xl mb-2">🤖</div>
+        <p className="font-medium">AI Chat</p>
+      </div>
+    </Link>
+
+    <Link to="/jobs">
+      <div className="bg-white/15 hover:bg-white/25 transition rounded-2xl p-5 text-center cursor-pointer">
+        <div className="text-3xl mb-2">💼</div>
+        <p className="font-medium">Jobs</p>
+      </div>
+    </Link>
+
+    <Link to="/reels">
+      <div className="bg-white/15 hover:bg-white/25 transition rounded-2xl p-5 text-center cursor-pointer">
+        <div className="text-3xl mb-2">🎬</div>
+        <p className="font-medium">Reels</p>
+      </div>
+    </Link>
+
+  </div>
+</motion.div>
                 {/* Badges Section */}
                 <section>
                     <div className="flex items-center justify-between mb-6">
