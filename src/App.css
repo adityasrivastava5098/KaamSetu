@@ -1,283 +1,42 @@
-:root {
-  --soil: #1a1208;
-  --bark: #2d1f0e;
-  --clay: #8b5e3c;
-  --wheat: #d4a853;
-  --leaf: #4a7c59;
-  --sky: #e8f4f8;
-  --cream: #f7f0e6;
-  --accent: #e8643a;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--soil);
-  color: var(--cream);
-  height: 100dvh;
-  overflow: hidden;
-  display: flex;
-}
-
 #root {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-/* ── SIDEBAR ── */
-.sidebar {
-  width: 220px;
-  flex-shrink: 0;
-  background: var(--bark);
-  display: flex;
-  flex-direction: column;
-  padding: 28px 0;
-  border-right: 1px solid rgba(212,168,83,.15);
-  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
 .logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 26px;
-  letter-spacing: 2px;
-  color: var(--wheat);
-  padding: 0 24px 28px;
-  border-bottom: 1px solid rgba(212,168,83,.15);
-  line-height: 1.1;
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-.logo span { color: var(--accent); }
-
-.skills-label {
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--clay);
-  padding: 20px 24px 10px;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.skill-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 13px 24px;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  color: #b0a090;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: left;
-  transition: all .2s;
-  border-left: 3px solid transparent;
-}
-.skill-btn:hover { color: var(--cream); background: rgba(255,255,255,.04); }
-.skill-btn.active {
-  color: var(--wheat);
-  border-left-color: var(--wheat);
-  background: rgba(212,168,83,.08);
-}
-.skill-btn .icon { font-size: 20px; width: 26px; text-align: center; }
-
-.sidebar-footer {
-  margin-top: auto;
-  padding: 20px 24px;
-  font-size: 11px;
-  color: var(--clay);
-  border-top: 1px solid rgba(212,168,83,.1);
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* ── MAIN AREA ── */
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-/* ── HEADER ── */
-.topbar {
-  padding: 18px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  flex-shrink: 0;
-}
-.topbar-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 2px;
-  color: var(--wheat);
-}
-.topbar-meta { font-size: 13px; color: var(--clay); }
-
-/* ── FEED ── */
-.feed-wrapper {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
+.card {
+  padding: 2em;
 }
 
-.feed {
-  height: 100%;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
+.read-the-docs {
+  color: #888;
 }
-.feed::-webkit-scrollbar { display: none; }
-
-/* ── VIDEO CARD ── */
-.video-card {
-  scroll-snap-align: start;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 20px 40px;
-}
-
-.card-inner {
-  position: relative;
-  height: 100%;
-  max-height: 680px;
-  aspect-ratio: 9/16;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 30px 80px rgba(0,0,0,.7);
-}
-
-.card-inner iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-/* overlay label */
-.card-label {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 40px 18px 18px;
-  background: linear-gradient(transparent, rgba(0,0,0,.75));
-  pointer-events: none;
-}
-.card-label .skill-tag {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 3px 9px;
-  border-radius: 4px;
-  margin-bottom: 6px;
-}
-.card-label .vid-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: #fff;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* side actions */
-.card-actions {
-  position: absolute;
-  right: -52px;
-  bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.action-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.12);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all .2s;
-  color: #fff;
-  text-decoration: none;
-}
-.action-btn:hover { background: var(--accent); border-color: var(--accent); transform: scale(1.1); }
-
-/* scroll hints */
-.scroll-hint {
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: center;
-}
-.hint-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.2);
-  transition: all .3s;
-}
-.hint-dot.active { background: var(--wheat); height: 20px; border-radius: 3px; }
-
-/* ── LOADING / EMPTY ── */
-.state-screen {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  color: var(--clay);
-}
-.state-screen .big-icon { font-size: 64px; opacity: .4; }
-.state-screen h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 2px;
-  color: var(--wheat);
-  opacity: .5;
-}
-.state-screen p { font-size: 14px; opacity: .6; }
-
-.spinner {
-  width: 40px; height: 40px;
-  border: 3px solid rgba(212,168,83,.2);
-  border-top-color: var(--wheat);
-  border-radius: 50%;
-  animation: spin .8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ── TOAST ── */
-.toast {
-  position: fixed;
-  bottom: 30px; left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  background: var(--accent);
-  color: #fff;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 600;
-  transition: transform .3s;
-  z-index: 999;
-}
-.toast.show { transform: translateX(-50%) translateY(0); }
