@@ -2,9 +2,19 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Award, Briefcase, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useAuth } from '../context/AuthContext';
 
 const LandingPage = () => {
     const navigate = useNavigate();
+    const { isAuthenticated } = useAuth();
+
+    const handleStartLearning = () => {
+        if (isAuthenticated) {
+            navigate('/dashboard');
+        } else {
+            navigate('/login');
+        }
+    };
 
     return (
         <div className="min-h-screen bg-white">
@@ -29,14 +39,14 @@ const LandingPage = () => {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <button
-                            onClick={() => navigate('/dashboard')}
+                            onClick={handleStartLearning}
                             className="w-full sm:w-auto px-10 py-5 bg-blue-600 text-white font-bold rounded-2xl shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all flex items-center justify-center gap-2 group transform active:scale-95"
                         >
-                            Start Learning
+                            {isAuthenticated ? 'Go to Dashboard' : 'Start Learning'}
                             <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                         </button>
                         <button
-                            onClick={() => navigate('/jobs?role=provider')}
+                            onClick={() => navigate(isAuthenticated ? '/jobs?role=provider' : '/login')}
                             className="w-full sm:w-auto px-10 py-5 bg-white border-2 border-gray-100 text-gray-700 font-bold rounded-2xl hover:border-blue-100 hover:bg-blue-50/10 transition-all transform active:scale-95 shadow-sm"
                         >
                             Find Workers
