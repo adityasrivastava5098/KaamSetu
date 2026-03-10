@@ -28,6 +28,10 @@ class WorkerService:
                 "type": "Point",
                 "coordinates": [worker_data.longitude, worker_data.latitude] # [lng, lat] for MongoDB
             },
+            # Course system fields
+            "badges": [],                # List of earned skill badge names
+            "completed_courses": [],     # List of completed course IDs
+            "progress": {},              # Module-level progress per course: {"c1": 2, "c2": 1}
             "created_at": datetime.utcnow()
         }
 
@@ -46,7 +50,7 @@ class WorkerService:
         if not worker:
             raise HTTPException(status_code=401, detail="Invalid phone number or PIN.")
 
-        # 2. Prepare response profile
+        # 2. Prepare response profile (include course system fields)
         worker["id"] = str(worker["_id"])
         return worker
 

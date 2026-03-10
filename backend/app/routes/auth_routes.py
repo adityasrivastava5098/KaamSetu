@@ -23,6 +23,9 @@ async def login(credentials: WorkerLoginRequest):
         "phone_number": worker_profile["phone_number"],
         "profile_photo_url": worker_profile["profile_photo_url"],
         "location": worker_profile["location"],
+        "badges": worker_profile.get("badges", []),
+        "completed_courses": worker_profile.get("completed_courses", []),
+        "progress": worker_profile.get("progress", {}),
         "created_at": worker_profile["created_at"]
     }
 

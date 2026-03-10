@@ -1,0 +1,57 @@
+[
+    {
+        "cid": "c1",
+        "cname": "Basic Electrician Training",
+        "skillname": "Electrician Helper",
+        "icon": "Zap",
+        "videolinks": {
+            "module1": "https://www.youtube.com/watch?v=mc979OhitAg",
+            "module2": "https://www.youtube.com/watch?v=9SsOaKkmFR4",
+            "module3": "https://www.youtube.com/watch?v=BI888RXFG5o"
+        }
+    },
+    {
+        "cid": "c2",
+        "cname": "Carpentry Basics",
+        "skillname": "Carpentry Assistant",
+        "icon": "Hammer",
+        "videolinks": {
+            "module1": "https://www.youtube.com/watch?v=LxSflWg9h5g",
+            "module2": "https://www.youtube.com/watch?v=2YjKOK5jGSY",
+            "module3": "https://www.youtube.com/watch?v=H1PvLHaS35U"
+        }
+    },
+    {
+        "cid": "c3",
+        "cname": "Plumbing Repair",
+        "skillname": "Plumbing Technician",
+        "icon": "Droplets",
+        "videolinks": {
+            "module1": "https://www.youtube.com/watch?v=Ll8JB4IZFUQ",
+            "module2": "https://www.youtube.com/watch?v=3HeqMTBfPTk",
+            "module3": "https://www.youtube.com/watch?v=1wCC1fXOrsI"
+        }
+    },
+    {
+        "cid": "c4",
+        "cname": "Construction Worker Basics",
+        "skillname": "Construction Helper",
+        "icon": "HardHat",
+        "videolinks": {
+            "module1": "https://www.youtube.com/watch?v=IBIk1UKr7VU",
+            "module2": "https://www.youtube.com/watch?v=nWCFrGkNonk",
+            "module3": "https://www.youtube.com/watch?v=nkGk2N0wyWM"
+        }
+    },
+    {
+        "cid": "c5",
+        "cname": "Painting & Wall Finishing",
+        "skillname": "Painter",
+        "icon": "Paintbrush",
+        "videolinks": {
+            "module1": "https://www.youtube.com/watch?v=8tMle7KS_jQ",
+            "module2": "https://www.youtube.com/watch?v=K8aSR7vaTeM",
+            "module3": "https://www.youtube.com/watch?v=aB6x0lSJOsk"
+        }
+    }
+]
